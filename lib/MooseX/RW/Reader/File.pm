@@ -7,7 +7,6 @@ use Carp;
 with 'MooseX::RW::Reader';
 
 
-
 =attr file
 
 Name of the file into which read something.  A error is thrown if the file
@@ -33,11 +32,11 @@ has file => (
 
 =attr fh
 
-File handle form which writing.
+File handle form which reading.
 
 =cut
 
-has fh => ( is => 'rw' );
+has fh => ( is => 'rw', );
 
 
 
@@ -45,7 +44,8 @@ has fh => ( is => 'rw' );
 
 =method percentage
 
-Returns the percentage of the file which has been read, with 2 decimals.
+Returns the percentage of the file which has been read, with 2 decimals. Based
+on values returned by stat() and tell() method from the file handle.
 
 =cut
 
